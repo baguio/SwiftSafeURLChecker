@@ -28,6 +28,9 @@ struct WatchCommand: Command {
         }
         
         context.console.print(Violation.generateReport(for: violations))
+        if !violations.isEmpty {
+            exit(2)
+        }
     }
 }
 
