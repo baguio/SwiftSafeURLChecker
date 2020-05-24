@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SafeURLChecker'
-  s.version          = '0.0.2'
+  s.version          = '0.1.0'
   s.summary          = 'A tool to enforce URL safety while using SafeURL.'
   s.homepage         = 'https://github.com/baguio/SwiftSafeURLChecker'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
