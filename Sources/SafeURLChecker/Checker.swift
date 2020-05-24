@@ -42,11 +42,12 @@ class Checker {
                 return
             }
             
+            let location = Location(file: file, byteOffset: bodyOffset)
+            
             Self.unvalidSafeInputRegexes.forEach {
                 if text.range(of: $0.rule, options: .regularExpression) != nil {
                     violations.append(
-                        Violation(location: Location(file: file,
-                                                     byteOffset: bodyOffset),
+                        Violation(location: location,
                                   ruleName: "URL Format",
                                   ruleDescription: $0.description)
                     )
