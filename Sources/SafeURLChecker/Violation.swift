@@ -15,9 +15,9 @@ struct Violation {
 
 extension Violation {
     var generateReport : String {
-        // {full_path_to_file}{:line}{:character}: {error,warning}: {content}
+        // {full_path_to_file}:{line}:{character}: {error,warning}: {content}
         return [
-            "\(location.fileOrDefault):\(location.lineOrDefault):\(location.characterOrDefault) ",
+            "\(location.fileOrDefault):\(location.lineOrDefault):\(location.characterOrDefault): ",
             "error: ",
             "\(ruleName) Violation: ",
             ruleDescription
