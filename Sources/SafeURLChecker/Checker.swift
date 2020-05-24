@@ -9,6 +9,7 @@ import Foundation
 import SourceKittenFramework
 
 class Checker {
+    private static let quotesAsCharSet = CharacterSet(arrayLiteral: "\"")
     private static let parameterName = "safeString"
     
     private static let unvalidSafeInputRegexes = [
@@ -53,13 +54,15 @@ class Checker {
                     )
                 }
             }
-            if violations.isEmpty, URL(string: text) == nil {
-                violations.append(
-                    Violation(location: Location(file: file,
-                                                 byteOffset: bodyOffset),
-                              ruleName: "URL Format",
-                              ruleDescription: "Invalid URL")
-                )
+            if violations.isEmpty {
+                let textWithoutOuterQuotes = text.trimmingCharacters(in: Self.quotesAsCharSet)
+                if URL(string: textWithoutOuterQuotes) == nil {
+                    violations.append(
+                        Violation(location: location,
+                                  ruleName: "URL Format",
+                                  ruleDescription: "Invalid URL")
+                    )
+                }
             }
         }
         
