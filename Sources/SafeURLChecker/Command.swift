@@ -3,7 +3,7 @@ import ConsoleKit
 import SourceKittenFramework
 import Files
 
-struct WatchCommand: Command {
+struct ScanCommand: Command {
     static let name = "scan"
     
     struct Signature: CommandSignature {

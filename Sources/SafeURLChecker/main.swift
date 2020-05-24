@@ -14,7 +14,7 @@ var context = CommandContext(console: console, input: input)
 
 var commands = Commands(enableAutocomplete: true)
 
-commands.use(WatchCommand(), as: WatchCommand.name, isDefault: true)
+commands.use(ScanCommand(), as: ScanCommand.name, isDefault: true)
 
 do {
     let group = commands.group(help: "Interact with your TODOs")
